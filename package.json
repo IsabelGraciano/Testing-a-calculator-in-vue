@@ -2,12 +2,16 @@
   "name": "vue-calculator",
   "version": "1.0.0",
   "private": true,
+  "description": "Super simple calculator made with Vue.js",
+  "author": "Kyle Butler",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "start": "node server.js"
   },
+  "main": "server.js",
   "dependencies": {
     "core-js": "^2.6.5",
     "express": "^4.16.4",
@@ -17,14 +21,13 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.6.0",
     "@vue/cli-plugin-eslint": "^3.6.0",
+    "@vue/cli-plugin-unit-jest": "^4.5.13",
     "@vue/cli-service": "^3.6.0",
+    "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.5.21"
-  },
-  "engines": {
-    "node": "10.13.0"
   },
   "eslintConfig": {
     "root": true,
@@ -38,7 +41,18 @@
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    }
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
   },
   "postcss": {
     "plugins": {
@@ -50,16 +64,16 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "description": "Super simple calculator made with Vue.js",
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kylbutlr/vue-calculator.git"
-  },
-  "author": "Kyle Butler",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kylbutlr/vue-calculator/issues"
   },
-  "homepage": "https://github.com/kylbutlr/vue-calculator#readme"
+  "engines": {
+    "node": "10.13.0"
+  },
+  "homepage": "https://github.com/kylbutlr/vue-calculator#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylbutlr/vue-calculator.git"
+  }
 }

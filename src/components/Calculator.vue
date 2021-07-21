@@ -1,25 +1,25 @@
 <template>
   <div class='calculator' onselectstart='return false'>
     <div class='display'>{{display}}</div>
-    <div @click='clear' class='button darker'>C</div>
-    <div @click='sign' class='button darker'>+/-</div>
-    <div @click='percent' class='button darker'>%</div>
-    <div @click='divide' class='button operator'>÷</div>
-    <div @click='append(7)' class='button'>7</div>
-    <div @click='append(8)' class='button'>8</div>
-    <div @click='append(9)' class='button'>9</div>
-    <div @click='multiply' class='button operator'>x</div>
-    <div @click='append(4)' class='button'>4</div>
-    <div @click='append(5)' class='button'>5</div>
-    <div @click='append(6)' class='button'>6</div>
-    <div @click='subtract' class='button operator'>-</div>
-    <div @click='append(1)' class='button'>1</div>
-    <div @click='append(2)' class='button'>2</div>
-    <div @click='append(3)' class='button'>3</div>
-    <div @click='add' class='button operator'>+</div>
-    <div @click='append(0)' class='button zero button-bottom'>0</div>
-    <div @click='decimal' class='button darker button-bottom'>.</div>
-    <div @click='equal' class='button operator button-bottom'>=</div>
+    <div @click='clear' id="clear" class='button darker'>C</div>
+    <div @click='sign' id="sign" class='button darker'>+/-</div>
+    <div @click='percent' id="percent" class='button darker'>%</div>
+    <div @click='divide' id="divide" class='button operator'>÷</div>
+    <div @click='append(7)' id="7" class='button'>7</div>
+    <div @click='append(8)' id="8" class='button'>8</div>
+    <div @click='append(9)' id="9" class='button'>9</div>
+    <div @click='multiply' id="multiply" class='button operator'>x</div>
+    <div @click='append(4)' id="4" class='button'>4</div>
+    <div @click='append(5)' id="5" class='button'>5</div>
+    <div @click='append(6)' id="6" class='button'>6</div>
+    <div @click='subtract' id="subtract" class='button operator'>-</div>
+    <div @click='append(1)' id="1" class='button'>1</div>
+    <div @click='append(2)' id="2" class='button'>2</div>
+    <div @click='append(3)' id="3" class='button'>3</div>
+    <div @click='add' id="add" class='button operator'>+</div>
+    <div @click='append(0)' id="0" class='button zero button-bottom'>0</div>
+    <div @click='decimal' id="decimal" class='button darker button-bottom'>.</div>
+    <div @click='equal' id="equal" class='button operator button-bottom'>=</div>
   </div>
 </template>
 
@@ -38,10 +38,7 @@ export default {
       this.display = 0;
     },
     sign() {
-      this.display =
-        this.display < 0
-          ? (this.display = this.display - this.display * 2)
-          : (this.display = this.display - this.display * 2);
+      this.display = (this.display - this.display * 2)
     },
     percent() {
       this.display = this.display / 100;
@@ -57,7 +54,7 @@ export default {
           : '' + this.display + number;
     },
     decimal() {
-      if (this.display.indexOf('.') === -1) {
+      if (this.display.toString().indexOf('.') === -1) {
         this.append('.');
       }
     },
